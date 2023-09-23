@@ -73,9 +73,9 @@ function checkNoBroadcasts() {
 
 //
 function mesErr(ert){
-    if (global.sendAlerts=== true) {
+
         bot.telegram.sendMessage(process.env.TELEGRAM_CHAT_ID, ert)
-    }
+
 }
 export async function getError(ert) {
     mesErr(ert);
