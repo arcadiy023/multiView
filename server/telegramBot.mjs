@@ -1,4 +1,4 @@
-import { Telegraf } from 'telegraf';
+import  {Telegraf} from 'telegraf';
 import dotenv from 'dotenv';
 import { updateFunction } from './server.mjs';
 
@@ -73,7 +73,9 @@ function checkNoBroadcasts() {
 
 //
 function mesErr(ert){
-    bot.telegram.sendMessage(process.env.TELEGRAM_CHAT_ID, ert)
+    if (global.sendAlerts=== true) {
+        bot.telegram.sendMessage(process.env.TELEGRAM_CHAT_ID, ert)
+    }
 }
 export async function getError(ert) {
     mesErr(ert);

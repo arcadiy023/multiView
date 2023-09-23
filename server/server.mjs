@@ -100,10 +100,12 @@ async function checkLiveBroadcasts() {
 
             if (liveStatus && liveStatus.actualStartTime && !liveStatus.actualEndTime) {
                 liveBroadcastsStatus[channel.name] = { status: 'В эфире' };
+
             } else {
                 liveBroadcastsStatus[channel.name] = { status: 'Не в эфире' };
+
             }
-        } catch (error) {
+        } catch (error) {S
             console.log(`Ошибка при получении данных для канала ${channel.name}:`, error);
            await getError(`Ошибка при получении данных для канала ${channel.name}:`)
             liveBroadcastsStatus[channel.name] = { status: 'нет информации' };
@@ -121,7 +123,7 @@ async function main() {
     await checkLiveBroadcasts();
     setInterval(async () => {
         await checkLiveBroadcasts();
-         }, 60000); //
+         }, 180000); //
 }
 export async function updateFunction() {
     await  getIdStreams();
